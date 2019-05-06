@@ -14,7 +14,7 @@ module.exports = {
     path : path.resolve(__dirname, "dist"), // where to put those files
     publicPath : "/" // the address seen from the web URL, after the domain
   },
-  devtool: "eval", // source map
+  devtool: "source-map", // source map
   devServer: {
     publicPath : "/", // this need to be the same as output.publicPath
     host: "localhost", // combine with port, will server your app through localhost:8080
@@ -65,6 +65,7 @@ module.exports = {
             options: {
               modules: true, // turn css selectors into hashes
               importLoaders: 1, // 1 loader will be applied before css-loader
+              localIdentName: "[name]_[local]_[hash:base64:5]",
               camelCase: true,
               sourceMap: true
             }
@@ -82,6 +83,16 @@ module.exports = {
             }
           }
         ]
+      },
+      {
+        test: /\.(jpe?g|png)$/i,
+        loader: "responsive-loader",
+        options: {
+          sizes: [360, 800, 1200, 1400], // the width of the output images, you should adapt to your app
+          placeholder: true,
+          adapter: require("responsive-loader/sharp"),
+          name: "./assets/images/[hash]-[width].[ext]"
+        }
       }
     ]
   },
