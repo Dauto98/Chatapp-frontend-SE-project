@@ -1,4 +1,4 @@
-import { put, takeEvery } from "redux-saga/effects";
+import { put, call, takeEvery } from "redux-saga/effects";
 
 import * as actionTypes from "../constants/actionTypes.js";
 
@@ -11,9 +11,31 @@ export function* login() {
 }
 
 function* registerHandler(action) {
-  console.log(action);
+  try {
+    const res = yield call(fetch, "/api/register", {
+      method: "POST",
+      body: JSON.stringify({ email: action.email, username: action.username, password: action.password })
+    });
+    if (res.ok) {
+      const data = yield call([res, res.json]);
+      console.log(data);
+    }
+  } catch (e) {
+    console.error(e);
+  }
 }
 
 function* loginHandler(action) {
-  console.log(action);
+  try {
+    const res = yield call(fetch, "/api/login", {
+      method: "POST",
+      body: JSON.stringify({ email: action.email, password: action.password })
+    });
+    if (res.ok) {
+      const data = yield call([res, res.json]);
+      console.log(data);
+    }
+  } catch (e) {
+    console.error(e);
+  }
 }

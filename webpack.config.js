@@ -4,26 +4,26 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  mode : "development",
-  context : path.resolve(__dirname), // make all relative path relative to this instead of cwd
-  entry : {
-    main : "./src/index.js" // chunkname : "path to start bundling this chunk"
+  mode: "development",
+  context: path.resolve(__dirname), // make all relative path relative to this instead of cwd
+  entry: {
+    main: "./src/index.js" // chunkname : "path to start bundling this chunk"
   },
-  output : {
-    filename : "[name].[hash].js", // name of the outputed files
-    path : path.resolve(__dirname, "dist"), // where to put those files
-    publicPath : "/" // the address seen from the web URL, after the domain
+  output: {
+    filename: "[name].[hash].js", // name of the outputed files
+    path: path.resolve(__dirname, "dist"), // where to put those files
+    publicPath: "/" // the address seen from the web URL, after the domain
   },
   devtool: "source-map", // source map
   devServer: {
-    publicPath : "/", // this need to be the same as output.publicPath
+    publicPath: "/", // this need to be the same as output.publicPath
     host: "localhost", // combine with port, will server your app through localhost:8080
     port: 7070,
     historyApiFallback: true,
     hot: true
   },
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
         test: /\.(js)$/,
         exclude: /node_modules/,
@@ -96,22 +96,22 @@ module.exports = {
       }
     ]
   },
-  optimization : {
-    runtimeChunk : true, // create a chunk containing webpack runtime code
-    splitChunks : {
-      cacheGroups : {
-        vendors : {
-          test : /[\\/]node_modules[\\/]/, // get all modules in node_modules
+  optimization: {
+    runtimeChunk: true, // create a chunk containing webpack runtime code
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          test: /[\\/]node_modules[\\/]/, // get all modules in node_modules
           priority: -10,
-          chunks : "all",
-          name : "vendor"
+          chunks: "all",
+          name: "vendor"
         }
       }
     },
-    namedModules : true,
-    namedChunks : true
+    namedModules: true,
+    namedChunks: true
   },
-  plugins : [
+  plugins: [
     new MiniCssExtractPlugin({
       filename: "[name].css", // sync chunk
       // chunkFilename: "[id].css" // async chunk
@@ -119,6 +119,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "src/index.html",
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.DefinePlugin({
+      ENV: JSON.stringify("local"),
+      API_URL: JSON.stringify("http://localhost:3000")
+    }),
   ]
 };
