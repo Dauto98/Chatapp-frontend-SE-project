@@ -1,0 +1,12 @@
+.mainContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.leftColumn {
+  flex: 1 1 25%;
+}
+
+.rightColumn {
+  flex: 2 1 75%;
+}

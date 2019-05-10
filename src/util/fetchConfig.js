@@ -17,8 +17,8 @@ export default () => fetchIntercept.register({
     }
 
     if (!config.headers["X-Token"]) {
-      //config.headers['X-Token'] = localStorage.getItem('token');
-      config.headers["X-Token"] = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1");
+      config.headers["X-Token"] = localStorage.getItem("token");
+      // config.headers["X-Token"] = document.cookie.replace(/(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/, "$1");
     }
     if (config.headers.Accept == null) {
       config.headers.Accept = "application/json";
