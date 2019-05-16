@@ -93,6 +93,10 @@ module.exports = {
           adapter: require("responsive-loader/sharp"),
           name: "./assets/images/[hash]-[width].[ext]"
         }
+      },
+      {
+        test: /\.svg$/,
+        loader: "svg-sprite-loader"
       }
     ]
   },

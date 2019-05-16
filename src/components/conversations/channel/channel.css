@@ -1,0 +1,44 @@
+.channelContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.channel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  color: #72767d;
+}
+
+.channel:hover {
+  background-color: #292b2f;
+  color: #fff;
+  cursor: pointer;
+}
+
+.channelAvatar {
+  display: flex;
+}
+
+.channelAvatar img {
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.channelInfo {
+  flex: 1 1 0;
+  padding-left: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.channelName {
+  color: rgb(213, 217, 222);
+}
+
+.channelSnippet {
+
+}

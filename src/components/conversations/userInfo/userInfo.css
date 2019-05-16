@@ -1,0 +1,54 @@
+.userInfoContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  background: rgba(32,34,37,.3);
+  height: 52px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 0 10px;
+  margin-bottom: 1px;
+}
+
+.userAvatar img {
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.username {
+  color: #fff;
+  flex: 1;
+  padding-left: 8px;
+}
+
+.iconButton {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: no-repeat 50% 50%;
+  background-size: 18px 18px;
+  position: relative;
+  opacity: .6;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.iconButton svg {
+  width: 18px;
+  height: 18px;
+  fill: #a9a9ab;
+}
+
+.iconButton:hover {
+  background-color: rgba(24,25,28,.3);
+}
+
+.iconButton:hover svg {
+  fill: #fff;
+}

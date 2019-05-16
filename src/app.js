@@ -16,8 +16,8 @@ const App = (props) => {
     <BrowserRouter>
       <Switch>
         <Route path="/login" component={Login} />
-        <Route path="/" component={Conversations} />
-        {props.token ? null : <Redirect from="*" to="/login" />}
+        <Route path="/conversation" component={Conversations} />
+        {/* {props.token ? null : <Redirect from="*" to="/login" />} */}
       </Switch>
     </BrowserRouter>
   );
