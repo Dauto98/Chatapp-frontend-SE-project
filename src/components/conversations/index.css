@@ -32,18 +32,6 @@
   flex-direction: column;
 }
 
-.userInfoContainer {
-  background: rgba(32,34,37,.3);
-  height: 52px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 400;
-  display: flex;
-  align-items: center;
-  padding: 0 10px;
-  margin-bottom: 1px;
-}
-
 .searchBar {
   position: relative;
   z-index: 2;
@@ -81,63 +69,8 @@
   margin: 1px;
 }
 
-.titleBar {
-  box-shadow: 0 1px 0 rgba(0,0,0,.2), 0 1.5px 0 rgba(0,0,0,.05), 0 2px 0 rgba(0,0,0,.05);
-  color: #b9bbbe;
-  position: relative;
-  display: flex;
-  align-items: center;
-  min-width: 0;
-  width: 100%;
-  flex: 0 0 auto;
-  height: 48px;
-  padding: 0 8px;
-  overflow: hidden;
-  font-size: 16px;
-  line-height: 20px;
-  z-index: 2;
-}
-
 .conversationContent {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-.messageWrapper {
-  position: relative;
-  display: flex;
-  flex: 1;
-  overflow: hidden;
-  z-index: 0;
-}
-
-.formWrapper {
-  padding-top: 20px;
-  margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 20px;
-  border-top: 1px solid hsla(0,0%,100%,.06);
-}
-
-.messageForm {
-  display: flex;
-  flex-direction: row;
-  background-color: rgba(114,118,125,.3);
-}
-
-.messageInput {
-  background-color: transparent;
-  resize: none;
-  border: none;
-  font-weight: 400;
-  font-size: 0.9375rem;
-  line-height: 1.25rem;
-  letter-spacing: -0.025rem;
-  max-height: 144px;
-  width: 100%;
-  min-height: 20px;
-  margin: 2px 2px 2px 0;
-  padding: 10px;
-  color: hsla(0,0%,100%,.7);
 }

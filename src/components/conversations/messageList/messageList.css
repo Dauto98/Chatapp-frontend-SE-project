@@ -1,0 +1,7 @@
+.messageWrapper {
+  position: relative;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  z-index: 0;
+}

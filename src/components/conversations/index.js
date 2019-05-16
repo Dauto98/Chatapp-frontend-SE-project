@@ -3,6 +3,9 @@ import { connect } from "react-redux";
 
 import ChannelList from "./channel/channel.js";
 import UserInfo from "./userInfo/userInfo.js";
+import TitleBar from "./titleBar/titleBar.js";
+import MessageList from "./messageList/messageList.js";
+import Textbox from "./textbox/textbox.js";
 
 import style from "./index.css";
 
@@ -21,16 +24,10 @@ const Conversations = () => {
         <UserInfo />
       </div>
       <div className={style.rightColumn}>
-        <div className={style.titleBar}>
-
-        </div>
+        <TitleBar />
         <div className={style.conversationContent}>
-          <div className={style.messageWrapper}></div>
-          <div className={style.formWrapper}>
-            <div className={style.messageForm}>
-              <input className={style.messageInput} />
-            </div>
-          </div>
+          <MessageList />
+          <Textbox />
         </div>
       </div>
     </div>
