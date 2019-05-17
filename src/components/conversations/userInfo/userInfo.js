@@ -1,6 +1,6 @@
 import React from "react";
 
-import iconUserDefault from "../../../assets/images/icon-user-default.png";
+import userDefaultImg from "../../../assets/images/icon-user-default.png";
 import iconCog from "../../../assets/svg/cog.svg";
 
 import style from "./userInfo.css";
@@ -9,7 +9,7 @@ const UserInfo = () => {
   return (
     <div className={style.userInfoContainer}>
       <div className={style.userAvatar}>
-        <img src={iconUserDefault.src} srcSet={iconUserDefault.srcSet} />
+        <img src={userDefaultImg.src} srcSet={userDefaultImg.srcSet} />
       </div>
       <div className={style.username}>
         Gaben

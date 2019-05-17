@@ -4,4 +4,81 @@
   flex: 1;
   overflow: hidden;
   z-index: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.messageGroup {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.groupTime {
+  display: flex;
+  flex-direction: row;
+  padding: 0 20px;
+}
+
+.groupTimeLine {
+  box-shadow: 0 1px 0 #72767d;
+  height: 20px;
+  flex-grow: 1;
+}
+
+.groupTimeText {
+  color: #72767d;
+  line-height: 32px;
+}
+
+.partnerMessage {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.userMessage {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.partnerAva {
+  display: flex;
+}
+
+.partnerAva img {
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.partnerMessageBlock {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 50%;
+}
+
+.userMessageBlock {
+  margin-right: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  max-width: 50%;
+}
+
+.messageLine {
+  color: #fff;
+  padding: 4px;
+  background-color: #2f3136;
+}
+
+.readStatus {
+  color: #72767d;
+  font-size: 14px;
+  text-align: right;
+  padding: 0 12px;
+  margin-top: 4px;
 }

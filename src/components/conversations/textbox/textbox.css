@@ -9,6 +9,7 @@
 .messageForm {
   display: flex;
   flex-direction: row;
+  align-items: center;
   background-color: rgba(114,118,125,.3);
 }
 
@@ -26,4 +27,20 @@
   margin: 2px 2px 2px 0;
   padding: 10px;
   color: hsla(0,0%,100%,.7);
+}
+
+.textboxIcon {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  margin: 0 8px;
+  fill: #72767c;
+}
+
+.iconClickable {
+  cursor: pointer;
+}
+
+.iconClickable:hover {
+  fill: #fff;
 }
