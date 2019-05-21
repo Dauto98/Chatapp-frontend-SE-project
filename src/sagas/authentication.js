@@ -1,14 +1,14 @@
-import { put, call, takeEvery } from "redux-saga/effects";
+import { put, call, takeEvery, fork } from "redux-saga/effects";
 
 import * as actionTypes from "../constants/actionTypes.js";
 
 import { receiveToken, startAuthRequest, endAuthRequest } from "../actions/authenActions.js";
 
-export function* register() {
+function* register() {
   yield takeEvery(actionTypes.REGISTER_ACCOUNT, registerHandler);
 }
 
-export function* login() {
+function* login() {
   yield takeEvery(actionTypes.LOGIN, loginHandler);
 }
 
@@ -48,4 +48,11 @@ function* loginHandler(action) {
   } finally {
     yield put(endAuthRequest());
   }
+}
+
+export default function* rootAuth() {
+  yield [
+    fork(register),
+    fork(login)
+  ];
 }

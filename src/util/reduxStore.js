@@ -4,7 +4,7 @@ import createSagaMiddleware from "redux-saga";
 
 import reducers from "../reducers/index.js";
 
-import { register } from "../sagas/authentication.js";
+import saga from "../sagas/index.js";
 
 const sagaMiddleware = createSagaMiddleware();
 
@@ -16,7 +16,7 @@ const middleware = applyMiddleware(
 export default initState => {
   const store = createStore(reducers, initState, middleware);
 
-  sagaMiddleware.run(register);
+  sagaMiddleware.run(saga);
 
   return store;
 };

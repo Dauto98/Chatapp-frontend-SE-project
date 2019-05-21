@@ -8,6 +8,8 @@ import fetchConfig from "./util/fetchConfig";
 
 import App from "./app.js";
 
+import "react-perfect-scrollbar/dist/css/styles.css";
+
 fetchConfig();
 const store = reduxStore();
 

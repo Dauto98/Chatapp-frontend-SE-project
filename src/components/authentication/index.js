@@ -64,7 +64,7 @@ let Login = ({ classes, setIsLogin, isFetching, login: loginAction }) => {
   };
 
   if (redirect) {
-    return <Redirect to="/" push />;
+    return <Redirect to="/conversation" push />;
   }
 
   return (
