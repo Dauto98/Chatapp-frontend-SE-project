@@ -2,6 +2,10 @@ import * as actionTypes from "../constants/actionTypes.js";
 
 const initState = {
   token: "",
+  user: {
+    id: "",
+    username: ""
+  },
   isFetching: false
 };
 
@@ -23,6 +27,10 @@ export default (state = initState, action) => {
       localStorage.setItem("token", action.token);
       return {
         ...state,
+        user: {
+          id: "c8ceb287-6b4f-4b85-9292-bc0b42202d7e",
+          username: "Khai phá thiên cơ"
+        },
         token: action.token
       };
     }

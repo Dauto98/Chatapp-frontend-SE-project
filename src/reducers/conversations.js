@@ -16,14 +16,16 @@ import * as actionTypes from "../constants/actionTypes.js";
  *   }
  * },
  * query: '',
- * isFetching: false
+ * isFetching: false,
+ * currentConversation: ""
  */
 
 const initState = {
   pagination: {},
   entities: {},
   query: "",
-  isFetching: false
+  isFetching: false,
+  currentConversation: ""
 };
 
 export default (state = initState, action) => {
@@ -54,7 +56,14 @@ export default (state = initState, action) => {
           ...action.normalized.entities.conversations
         },
         query: state.query,
-        isFetching: false
+        isFetching: false,
+        currentConversation: state.currentConversation
+      };
+    }
+    case actionTypes.CHANGE_CONVERSATION: {
+      return {
+        ...state,
+        currentConversation: action.id
       };
     }
     default: {

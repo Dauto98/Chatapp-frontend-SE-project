@@ -5,7 +5,7 @@ import PerfectScrollbar from "react-perfect-scrollbar";
 
 import { getConversations } from "../../../selectors/index.js";
 
-import { fetchConversation } from "../../../actions/conversationActions.js";
+import { fetchConversation, changeConversation } from "../../../actions/conversationActions.js";
 
 import { formatDate } from "../../../util/datetime.js";
 
@@ -18,14 +18,14 @@ const ChannelList = (props) => {
     props.fetchConversation();
   }, []);
 
-  const loadMore = () => props.fetchConversation({ offset: props.conversations.length, query: props.query });
+  const loadMore = () => props.fetchConversation({ limit: 10, offset: props.conversations.length, query: props.query });
 
   return (
     <div className={style.channelContainer}>
       <PerfectScrollbar>
         <InfiniteScroll loadMore={loadMore} hasMore={props.isFull} useWindow={false} loader={<div className={style.loader} key={0}>Loading ...</div>}>
           {props.conversations.map(conversation => (
-            <div key={conversation.id} className={style.channel}>
+            <div key={conversation.id} className={style.channel} onClick={() => props.changeConversation(conversation.id)}>
               <div className={style.channelAvatar}>
                 {conversation.user.avatar ? (
                   <img src={conversation.user.avatar} alt="user avatar" />
@@ -35,13 +35,13 @@ const ChannelList = (props) => {
               </div>
               <div className={style.channelInfo}>
                 <div className={style.channelName}>
-                  {conversation.user.reduce((acc, ele) => `${acc},${ele.username}`, "").slice(1, 28)}
+                  {conversation.user.map(user => user.username).join(", ")}
                 </div>
                 <div className={style.channelSnippet}>
                   {conversation.snippet.length > 30 ? `${conversation.snippet.slice(0, 28)}...` : conversation.snippet}
                 </div>
               </div>
-              <div className={style.channelTime}>{formatDate(conversation.lastReplyTime * 1000)}</div>
+              <div className={style.channelTime}>{formatDate(conversation.lastReplyTime)}</div>
             </div>
           ))}
         </InfiniteScroll>
@@ -58,4 +58,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchConversation })(ChannelList);
+export default connect(mapStateToProps, { fetchConversation, changeConversation })(ChannelList);

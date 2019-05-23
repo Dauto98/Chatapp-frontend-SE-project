@@ -35,7 +35,7 @@ function* fetchCoversationTask() {
 const fakeCovn = Promise.resolve([
   {
     id: "3e56bacd-d8ec-469e-ade0-6d133bcbb6eb",
-    lastReplyTime: "1558368649",
+    lastReplyTime: "1558368649000",
     user: [
       {
         id: "babf74a1-cf1b-4d3f-ab67-f1b8f78ccceb",
@@ -48,7 +48,7 @@ const fakeCovn = Promise.resolve([
   },
   {
     id: "3e56bacd-d8ec-469e-ade0-6d133basdnux",
-    lastReplyTime: "1558362182",
+    lastReplyTime: "1558362182000",
     user: [
       {
         id: "babf74a1-cf1b-4d3f-ab70-f1b8f78ccceb",
@@ -63,15 +63,12 @@ const fakeCovn = Promise.resolve([
 
 function* fetchConversation(action) {
   try {
-    let filterStirng = "";
+    let filterStirng = `?limit=${action.filter.limit || 10}`;
     if (action.filter.query) {
-      filterStirng += `query=${action.filter.query}&`;
+      filterStirng += `&query=${action.filter.query}`;
     }
     if (action.filter.offset) {
-      filterStirng += `offset=${action.filter.offset}&`;
-    }
-    if (filterStirng.length > 0) {
-      filterStirng = `?${filterStirng}`;
+      filterStirng += `&offset=${action.filter.offset}`;
     }
     // const res = yield call(fetch, `/api/conversation${filterStirng}`);
     // if (res.ok) {
